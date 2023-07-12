@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@emotion/react';
+import { CssBaseline } from '@mui/material';
 import Router from './pages/Router';
+import { theme } from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router />
-    </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

@@ -1,23 +1,34 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home/Home';
-import Header from '../components/Header/Header';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
-import CreateEmployee from './Employee/CreateEmployee';
 import EmployeeList from './Employee/EmployeeList';
 import ErrorPage from './404/ErrorPage';
+import CreateEmployee from './Employee/CreateEmployee';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function Router() {
   return (
     <div className="app">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/create-employee" element={<CreateEmployee />} />
-        <Route path="/list-employee" element={<EmployeeList />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-      <Footer />
+      <BrowserRouter>
+        <NavBar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<CreateEmployee />} />
+          <Route path="/list-employee" element={<EmployeeList />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

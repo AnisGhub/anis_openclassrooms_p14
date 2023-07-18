@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
 export default function EmployeeList() {
-  return <h1>table list company Employee here</h1>;
+  return <div>list</div>;
 }

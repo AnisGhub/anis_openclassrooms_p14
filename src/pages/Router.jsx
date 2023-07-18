@@ -22,11 +22,13 @@ export default function Router() {
       <BrowserRouter>
         <NavBar />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<CreateEmployee />} />
-          <Route path="/list-employee" element={<EmployeeList />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <div style={{ minHeight: 'calc(100vh - 80px)' }}>
+          <Routes>
+            <Route path="/" element={<CreateEmployee />} />
+            <Route path="/list-employee" element={<EmployeeList />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </div>
         <Footer />
       </BrowserRouter>
     </div>

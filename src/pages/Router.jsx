@@ -22,7 +22,7 @@ export default function Router() {
       <BrowserRouter>
         <NavBar />
         <ScrollToTop />
-        <div style={{ minHeight: 'calc(100vh - 80px)' }}>
+        <div style={{ minHeight: 'calc(100vh - 80px - 100px)' }}>
           <Routes>
             <Route path="/" element={<CreateEmployee />} />
             <Route path="/list-employee" element={<EmployeeList />} />

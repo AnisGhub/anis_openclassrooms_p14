@@ -11,9 +11,12 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 
 import { Link as RouterLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { departments, states } from '../../constants/Constants';
+import { addEmployee } from '../../state/employeeSlice';
 
 export default function CreateEmployee() {
+  const dispatch = useDispatch();
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -47,13 +50,12 @@ export default function CreateEmployee() {
   });
 
   const handleFormSubmit = (values) => {
-    // Handle form submission
-    console.log(JSON.stringify(values, null, 2));
+    const employee = { ...values, id: Math.floor(Math.random() * 1000000) };
+    dispatch(addEmployee(employee));
   };
 
   return (
     <Box
-      m="20px"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -122,7 +124,8 @@ export default function CreateEmployee() {
                       value={values.dateOfBirth}
                       onChange={(date) => {
                         setFieldTouched('dateOfBirth', true);
-                        setFieldValue('dateOfBirth', dayjs(date).toDate());
+                        const formattedDate = dayjs(date).format('MM/DD/YYYY');
+                        setFieldValue('dateOfBirth', formattedDate);
                       }}
                       onOpen={() => setFieldTouched('dateOfBirth', true)}
                       slotProps={{
@@ -146,7 +149,8 @@ export default function CreateEmployee() {
                       value={values.startDate}
                       onChange={(date) => {
                         setFieldTouched('startDate', true);
-                        setFieldValue('startDate', dayjs(date).toDate());
+                        const formattedDate = dayjs(date).format('MM/DD/YYYY');
+                        setFieldValue('startDate', formattedDate);
                       }}
                       onOpen={() => setFieldTouched('startDate', true)}
                       slotProps={{
@@ -249,7 +253,7 @@ export default function CreateEmployee() {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12}>
+              <Grid mb="40px" item xs={12}>
                 <Button type="submit" variant="contained" color="secondary" fullWidth>
                   Save
                 </Button>

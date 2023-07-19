@@ -1,10 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import generateRandomEmployee from '../utils/generateRandomEmployee';
 
 const employeeSlice = createSlice({
   name: 'employee',
   initialState: {
-    employees: [],
+    employees: Array.from({ length: 20 }, () => generateRandomEmployee()),
     loading: false,
     error: null,
   },

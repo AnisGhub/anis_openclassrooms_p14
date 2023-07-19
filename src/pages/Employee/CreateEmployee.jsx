@@ -11,12 +11,13 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 
 import { Link as RouterLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { departments, states } from '../../constants/Constants';
 import { addEmployee } from '../../state/employeeSlice';
 
 export default function CreateEmployee() {
   const dispatch = useDispatch();
+  const employees = useSelector((state) => state.employees);
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -50,7 +51,8 @@ export default function CreateEmployee() {
   });
 
   const handleFormSubmit = (values) => {
-    const employee = { ...values, id: Math.floor(Math.random() * 1000000) };
+    const lastId = employees[employees.length - 1].id || 0;
+    const employee = { ...values, id: lastId + 1 };
     dispatch(addEmployee(employee));
   };
 

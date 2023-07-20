@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, TextField, Typography, MenuItem, Grid } from '@mui/material';
-import TableRowsIcon from '@mui/icons-material/TableRows';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -12,10 +11,13 @@ import dayjs from 'dayjs';
 
 import { Link as RouterLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
+import Modal from 'modal-pkg-opc';
 import { departments, states } from '../../constants/Constants';
 import { addEmployee } from '../../state/employeeSlice';
 
 export default function CreateEmployee() {
+  const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees);
   const initialValues = {
@@ -50,30 +52,31 @@ export default function CreateEmployee() {
     department: Yup.string().required('Department is required'),
   });
 
-  const handleFormSubmit = (values) => {
+  const handleFormSubmit = (values, { resetForm }) => {
     const lastId = employees[employees.length - 1].id || 0;
     const employee = { ...values, id: lastId + 1 };
     dispatch(addEmployee(employee));
+    // display Modal
+    setOpenModal(true);
+    resetForm();
   };
 
   return (
     <Box
       display="flex"
       flexDirection="column"
-      alignItems="center"
-      width="60%"
+      alignItems="flex-start"
+      width="50%"
       margin="0 auto"
-      minWidth={350}
+      maxWidth={500}
+      minWidth={300}
     >
       <Box mb="40px">
         <Typography variant="h3" color="primary" fontWeight="bold" mt="20px" mb="20px">
           Create an Employee
         </Typography>
-        <Button component={RouterLink} to="/list-employee" variant="contained" color="neutral">
-          <TableRowsIcon sx={{ marginRight: '4px' }} />
-          <Typography variant="body" color="neutral">
-            View Current Employees
-          </Typography>
+        <Button component={RouterLink} to="/list-employee" variant="outlined">
+          <Typography variant="body2">View Current Employees</Typography>
         </Button>
       </Box>
       <Formik
@@ -264,6 +267,9 @@ export default function CreateEmployee() {
           </form>
         )}
       </Formik>
+      {openModal && (
+        <Modal message="Employee added successfully!" closeModal={() => setOpenModal(false)} />
+      )}
     </Box>
   );
 }

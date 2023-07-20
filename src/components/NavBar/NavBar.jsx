@@ -41,13 +41,13 @@ function NavBar() {
         >
           <Button color="secondary" onClick={() => navigate('/')}>
             <AddIcon sx={{ marginRight: '4px' }} />
-            <Typography color="secondary" variant={isMobile ? 'body2' : 'h6'}>
+            <Typography color="secondary" variant={isMobile ? 'caption' : 'h6'}>
               New Employee
             </Typography>
           </Button>
           <Button color="secondary" onClick={() => navigate('/list-employee')}>
             <TableRowsIcon sx={{ marginRight: '4px' }} />
-            <Typography color="secondary" variant={isMobile ? 'body2' : 'h6'}>
+            <Typography color="secondary" variant={isMobile ? 'caption' : 'h6'}>
               List
             </Typography>
           </Button>

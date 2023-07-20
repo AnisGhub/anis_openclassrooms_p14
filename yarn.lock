@@ -6805,6 +6805,11 @@ mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+modal-pkg-opc@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/modal-pkg-opc/-/modal-pkg-opc-1.0.4.tgz#c617ae7a6f446a3dc55ab6e6e710063e0c14876b"
+  integrity sha512-5poJonKZQqWgCUpiEp7VAEhn2uEoH59jfkif2fzi8mT7h73AgdIzIY7v47O0/K2iKay5a1pmput7DxTZGy/OQQ==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

@@ -5,9 +5,7 @@ import generateRandomEmployee from '../utils/generateRandomEmployee';
 const employeeSlice = createSlice({
   name: 'employee',
   initialState: {
-    employees: Array.from({ length: 20 }, () => generateRandomEmployee()),
-    loading: false,
-    error: null,
+    employees: Array.from({ length: 20 }, generateRandomEmployee),
   },
   reducers: {
     addEmployee: (state, action) => {

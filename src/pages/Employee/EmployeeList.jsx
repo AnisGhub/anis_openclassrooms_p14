@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -43,7 +43,13 @@ export default function EmployeeList() {
               },
             },
           }}
-          pageSizeOptions={[10]}
+          slots={{ toolbar: GridToolbar }}
+          slotProps={{
+            toolbar: {
+              showQuickFilter: true,
+            },
+          }}
+          pageSizeOptions={[10, 25, 50, 100]}
           checkboxSelection
           disableRowSelectionOnClick
         />

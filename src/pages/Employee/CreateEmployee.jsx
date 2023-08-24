@@ -136,7 +136,7 @@ export default function CreateEmployee() {
                       slotProps={{
                         textField: {
                           fullWidth: true,
-                          label: 'Date Picker',
+                          label: 'Birth date',
                           error: Boolean(touched.dateOfBirth) && Boolean(errors.dateOfBirth),
                           helperText: touched.dateOfBirth && errors.dateOfBirth,
                         },

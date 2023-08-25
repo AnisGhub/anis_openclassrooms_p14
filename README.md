@@ -2,7 +2,7 @@
 
 ## Projet 14 - Wealth Health
 
-------------
+---
 
 ### Description du projet
 
@@ -33,3 +33,39 @@ Mon rôle a été de mettre l'application à niveau en utilisant React, de conve
 - Déployer une application front-end
 - Programmer en JavaScript avec la programmation fonctionnelle
 - Refondre une application pour réduire la dette technique
+
+## Features
+
+- react router
+- redux toolkit pour gerer le store, etat general de l'application
+- functional components
+- Material UI pour les UI components (DataGrid, DatePicker)
+- Forms avec Formik et Yup
+- responsive design
+
+## Tech Stack
+
+**Client:** React, react-router-dom, redux-toolkit, MUI, Formik, Yup esLint, Prettier
+
+## Required
+
+[![Node.js](https://custom-icon-badges.demolab.com/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+
+[![NPM](https://img.shields.io/badge/-NPM-CC3534?logo=npm&logoColor=white&style=for-the-badge)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Installation
+
+1. Clone repository:
+
+- `git clone https://github.com/AnisGhub/anis_openclassrooms_p14.git`
+
+1. Installer toutes les dépendances pour le front-end:
+
+- `npm install` ou `yarn install`
+
+3. Lancer le front-end:
+
+- `npm start` ou `yarn start`
+
+Le front-end sera lancé à l'URL:
+`http://localhost:3000/`.
